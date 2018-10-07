@@ -17,7 +17,7 @@ public class GameControllerMono : MonoBehaviour {
         gameSystems = CreateGameSystems(contexts);
         gameSystems.Initialize();
 
-        Time.timeScale = 15f;
+        Time.timeScale = 1f;
     }
 
     private void FixedUpdate() {
