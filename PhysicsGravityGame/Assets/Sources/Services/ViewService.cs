@@ -10,11 +10,11 @@ public class ViewService {
         LoadAsset(contexts, entity, assetName, Vector2.zero);
     }
 
-    public static void LoadAsset(Contexts contexts, IEntity entity, string assetName, Vector2 position) {
+    public static GameObject LoadAsset(Contexts contexts, IEntity entity, string assetName, Vector2 position) {
         var viewGo = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/" + assetName));
-        if(viewGo == null) return;
+        if (viewGo == null) return null;
 
-        if(viewHolder == null) viewHolder = new GameObject(viewHolderName).transform;
+        if (viewHolder == null) viewHolder = new GameObject(viewHolderName).transform;
         viewGo.transform.SetParent(viewHolder);
 
         viewGo.transform.position = new Vector3(position.x, position.y, 0f);
@@ -22,6 +22,7 @@ public class ViewService {
         viewGo.Link(entity, contexts.game);
 
         var eventListeners = viewGo.GetComponentsInChildren<IEventListener>();
-        foreach(var listener in eventListeners) listener.RegisterListeners(entity);
+        foreach (var listener in eventListeners) listener.RegisterListeners(entity);
+        return viewGo;
     }
 }

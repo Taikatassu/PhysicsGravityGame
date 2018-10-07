@@ -113,98 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &553972200
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495474039529200, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617405372700894, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5fb57c592128ef645b7d60405f293284, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &672194876
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618666355680320, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1573965867356956, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c5fba72ad116b834ea7dd40874855182, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &2084095891
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +140,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ee000d851f00743a4535e2f56693a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetSettings:
+  - name: Mercury
+    color: {r: 0.5882353, g: 0.58431375, b: 0.6, a: 1}
+    mass: 0.00017
+    scale: 0.4
+    orbitEccentricity: 0.25
+  - name: Venus
+    color: {r: 0.95686275, g: 0.93333334, b: 0.8392157, a: 1}
+    mass: 0.00256
+    scale: 0.4
+    orbitEccentricity: 0.25
+  - name: Earth
+    color: {r: 0.43137255, g: 0.45882353, b: 0.627451, a: 1}
+    mass: 0.00315
+    scale: 0.4
+    orbitEccentricity: 0.25
+  - name: Mars
+    color: {r: 0.827451, g: 0.39607844, b: 0.2509804, a: 1}
+    mass: 0.00034
+    scale: 0.4
+    orbitEccentricity: 0.25
+  - name: Jupiter
+    color: {r: 0.9098039, g: 0.69803923, b: 0.5568628, a: 1}
+    mass: 1
+    scale: 2
+    orbitEccentricity: 0.25
+  - name: Saturnus
+    color: {r: 0.8156863, g: 0.64705884, b: 0.4509804, a: 1}
+    mass: 0.299
+    scale: 1.8
+    orbitEccentricity: 0.25
+  - name: Uranus
+    color: {r: 0.81960785, g: 0.90588236, b: 0.9137255, a: 1}
+    mass: 0.046
+    scale: 1
+    orbitEccentricity: 0.25
+  - name: Neptunus
+    color: {r: 0.39215687, g: 0.5647059, b: 0.85490197, a: 1}
+    mass: 0.054
+    scale: 1
+    orbitEccentricity: 0.25
+  starMass: 19890000
+  orbitRadiusIncrement: 5
+  firstOrbitRadius: 12
+  orbitEccentricity: 0
+  placePlanetOnDifferentSectors: 0
+  overrideOrbitEccentricity: 0
+  timeScale: 1
 --- !u!4 &2084095893
 Transform:
   m_ObjectHideFlags: 0

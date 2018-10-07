@@ -21,3 +21,28 @@ public class MassComponent : IComponent {
 public class ForceComponent : IComponent {
     public Vector2 force;
 }
+
+[Meta, Unique]
+public class CelestialBodySettingsComponent : IComponent {
+    public CelestialBodySettings value;
+}
+
+[System.Serializable]
+public struct CelestialBodySettings {
+    public PlanetSettings[] planetSettings;
+    public float starMass;
+    public float orbitRadiusIncrement;
+    public float firstOrbitRadius;
+    public float orbitEccentricity;
+    public bool placePlanetOnDifferentSectors;
+    public bool overrideOrbitEccentricity;
+}
+
+[System.Serializable]
+public struct PlanetSettings {
+    public string name;
+    public Color color;
+    public float mass;
+    public float scale;
+    public float orbitEccentricity;
+}
