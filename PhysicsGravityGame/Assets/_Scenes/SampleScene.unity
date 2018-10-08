@@ -113,15 +113,15 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &2084095891
+--- !u!1 &1690655650
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2084095893}
-  - component: {fileID: 2084095892}
+  - component: {fileID: 1690655652}
+  - component: {fileID: 1690655651}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -129,73 +129,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2084095892
+--- !u!114 &1690655651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2084095891}
+  m_GameObject: {fileID: 1690655650}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59ee000d851f00743a4535e2f56693a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetSettings:
-  - name: Mercury
-    color: {r: 0.5882353, g: 0.58431375, b: 0.6, a: 1}
-    mass: 0.00017
-    scale: 0.4
-    orbitEccentricity: 0.25
-  - name: Venus
-    color: {r: 0.95686275, g: 0.93333334, b: 0.8392157, a: 1}
-    mass: 0.00256
-    scale: 0.4
-    orbitEccentricity: 0.25
-  - name: Earth
-    color: {r: 0.43137255, g: 0.45882353, b: 0.627451, a: 1}
-    mass: 0.00315
-    scale: 0.4
-    orbitEccentricity: 0.25
-  - name: Mars
-    color: {r: 0.827451, g: 0.39607844, b: 0.2509804, a: 1}
-    mass: 0.00034
-    scale: 0.4
-    orbitEccentricity: 0.25
-  - name: Jupiter
-    color: {r: 0.9098039, g: 0.69803923, b: 0.5568628, a: 1}
-    mass: 1
-    scale: 2
-    orbitEccentricity: 0.25
-  - name: Saturnus
-    color: {r: 0.8156863, g: 0.64705884, b: 0.4509804, a: 1}
-    mass: 0.299
-    scale: 1.8
-    orbitEccentricity: 0.25
-  - name: Uranus
-    color: {r: 0.81960785, g: 0.90588236, b: 0.9137255, a: 1}
-    mass: 0.046
-    scale: 1
-    orbitEccentricity: 0.25
-  - name: Neptunus
-    color: {r: 0.39215687, g: 0.5647059, b: 0.85490197, a: 1}
-    mass: 0.054
-    scale: 1
-    orbitEccentricity: 0.25
-  starMass: 19890000
-  orbitRadiusIncrement: 5
-  firstOrbitRadius: 12
-  orbitEccentricity: 0
-  placePlanetOnDifferentSectors: 0
-  overrideOrbitEccentricity: 0
+  celestialConfig: {fileID: 11400000, guid: e54888b9ff2c4c44e80fb0b13947b346, type: 2}
   timeScale: 1
---- !u!4 &2084095893
+--- !u!4 &1690655652
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2084095891}
+  m_GameObject: {fileID: 1690655650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0000013059824, y: 4.228857, z: -9.0618305}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

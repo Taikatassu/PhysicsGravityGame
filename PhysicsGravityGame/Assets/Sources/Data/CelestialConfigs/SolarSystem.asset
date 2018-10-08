@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SolarSystem
+  m_EditorClassIdentifier: Assembly-CSharp::CelestialConfig
+  configName: SolarSystem
+  celestialBodySettings:
+    planetSettings:
+    - name: Mercury
+      color: {r: 0.5882353, g: 0.58431375, b: 0.6, a: 1}
+      mass: 0.00017
+      scale: 0.4
+      orbitEccentricity: 0.25
+    - name: Venus
+      color: {r: 0.95686275, g: 0.93333334, b: 0.8392157, a: 1}
+      mass: 0.00256
+      scale: 0.4
+      orbitEccentricity: 0.25
+    - name: Earth
+      color: {r: 0.43137255, g: 0.45882353, b: 0.627451, a: 1}
+      mass: 0.00315
+      scale: 0.4
+      orbitEccentricity: 0.25
+    - name: Mars
+      color: {r: 0.827451, g: 0.39607844, b: 0.2509804, a: 1}
+      mass: 0.00034
+      scale: 0.4
+      orbitEccentricity: 0.25
+    - name: Jupiter
+      color: {r: 0.9098039, g: 0.69803923, b: 0.5568628, a: 1}
+      mass: 1
+      scale: 2
+      orbitEccentricity: 0.25
+    - name: Saturn
+      color: {r: 0.8156863, g: 0.64705884, b: 0.4509804, a: 1}
+      mass: 0.299
+      scale: 1.8
+      orbitEccentricity: 0.25
+    - name: Uranus
+      color: {r: 0.81960785, g: 0.90588236, b: 0.9137255, a: 1}
+      mass: 0.046
+      scale: 1
+      orbitEccentricity: 0.25
+    - name: Neptune
+      color: {r: 0.39215687, g: 0.5647059, b: 0.85490197, a: 1}
+      mass: 0.054
+      scale: 1
+      orbitEccentricity: 0.25
+    starMass: 19890000
+    firstOrbitSemiMajorAxis: 12
+    orbitSemiMajorAxisIncrement: 5
+    orbitEccentricity: 0
+    placePlanetOnDifferentSectors: 0
+    overrideOrbitEccentricity: 0

@@ -8,14 +8,7 @@ public class GameControllerMono : MonoBehaviour {
     public static readonly string starAssetName = "Star";
     public static readonly string planetAssetName = "Planet";
 
-
-    public PlanetSettings[] planetSettings;
-    public float starMass;
-    public float orbitRadiusIncrement;
-    public float firstOrbitRadius;
-    public float orbitEccentricity;
-    public bool placePlanetOnDifferentSectors;
-    public bool overrideOrbitEccentricity;
+    public CelestialConfig celestialConfig;
 
     [Range(0.1f, 100f)]
     public float timeScale;
@@ -25,15 +18,7 @@ public class GameControllerMono : MonoBehaviour {
 
     private void Start() {
         contexts = Contexts.sharedInstance;
-        var celestialBodySettings = new CelestialBodySettings {
-            planetSettings = planetSettings,
-            starMass = starMass,
-            orbitRadiusIncrement = orbitRadiusIncrement,
-            firstOrbitRadius = firstOrbitRadius,
-            orbitEccentricity = orbitEccentricity,
-            placePlanetOnDifferentSectors = placePlanetOnDifferentSectors,
-            overrideOrbitEccentricity = overrideOrbitEccentricity
-        };
+        var celestialBodySettings = celestialConfig.celestialBodySettings;
         contexts.meta.ReplaceCelestialBodySettings(celestialBodySettings);
 
         gameSystems = CreateGameSystems(contexts);

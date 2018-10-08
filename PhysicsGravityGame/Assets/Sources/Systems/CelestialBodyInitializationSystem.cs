@@ -15,7 +15,6 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
         var settings = contexts.meta.celestialBodySettings.value;
 
         //Star
-        //var starMass = 198900f;
         var starEntity = contexts.game.CreateEntity();
         starEntity.ReplaceMass(settings.starMass);
         starEntity.ReplacePosition(Vector2.one * 50f);
@@ -25,21 +24,28 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
         //Planet(s)
         var planetSettings = settings.planetSettings;
         if (planetSettings == null || planetSettings.Length <= 0) return;
-        //var planetMass = 0.5974f;
         var sectorAngle = 360f / planetSettings.Length;
         for (int i = 0; i < planetSettings.Length; i++) {
             var currentPlanetSettings = planetSettings[i];
-            var planetOrbitRadius = settings.firstOrbitRadius + (i * settings.orbitRadiusIncrement);
-            var planetInitialPosition = (settings.placePlanetOnDifferentSectors)
-                ? starEntity.position.value + (Vector2)(Quaternion.Euler(0f, 0f, sectorAngle * i)
-                    * (Vector2.up * planetOrbitRadius))
-                : starEntity.position.value + (Vector2.up * planetOrbitRadius);
+            var startOnPeriapsis = true;
+
 
             var orbitEccentricity = (settings.overrideOrbitEccentricity)
                 ? settings.orbitEccentricity
                 : currentPlanetSettings.orbitEccentricity;
+            var orbitSemiMajorAxis = settings.firstOrbitSemiMajorAxis + (i * settings.orbitSemiMajorAxisIncrement);
+            var orbitFocusDistanceFromCenter = PhysicsService.OrbitFocusPosition(orbitSemiMajorAxis, orbitEccentricity);
+            var planetInitialDistanceFromFocus = (startOnPeriapsis)
+                ? orbitSemiMajorAxis - orbitFocusDistanceFromCenter
+                : orbitSemiMajorAxis + orbitFocusDistanceFromCenter;
+
+            var planetInitialPosition = (settings.placePlanetOnDifferentSectors)
+                ? starEntity.position.value + (Vector2)(Quaternion.Euler(0f, 0f, sectorAngle * i)
+                    * (Vector2.up * planetInitialDistanceFromFocus))
+                : starEntity.position.value + (Vector2.up * planetInitialDistanceFromFocus);
+
             var orbitalVelocity = PhysicsService.OrbitalVelocity(settings.starMass + currentPlanetSettings.mass,
-                planetOrbitRadius, orbitEccentricity);
+                planetInitialDistanceFromFocus, orbitEccentricity, startOnPeriapsis);
             var directionFromOrbitCenter = planetInitialPosition - starEntity.position.value;
             var planetInitialVelocity = Quaternion.Euler(0f, 0f, 90f) * (directionFromOrbitCenter.normalized * orbitalVelocity);
 
@@ -47,6 +53,9 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
             planetEntity.ReplaceMass(currentPlanetSettings.mass);
             planetEntity.ReplacePosition(planetInitialPosition);
             planetEntity.ReplaceVelocity(planetInitialVelocity);
+
+            //TODO: Initialize unity gameObject component values elsewhere
+            //          Create components and listeners for specific values, like trail color / time, etc.
             var planetObject = ViewService.LoadAsset(contexts, planetEntity, GameControllerMono.planetAssetName, planetInitialPosition);
 
             planetObject.GetComponentInChildren<SpriteRenderer>().color = currentPlanetSettings.color;
@@ -54,10 +63,8 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
             var planetTrail = planetObject.GetComponent<TrailRenderer>();
             planetTrail.startWidth = currentPlanetSettings.scale * 1.5f;
             planetTrail.material.color = currentPlanetSettings.color;
-
-            //TODO: This does not currently work for non-circular orbits. "planetOrbitRadius" is not the semi-major axis!!
-            //          Find out how to determine semi-major axis form existing information!
-            var orbitalPeriod = PhysicsService.OrbitalPeriod(planetOrbitRadius, settings.starMass);
+            
+            var orbitalPeriod = PhysicsService.OrbitalPeriod(orbitSemiMajorAxis, settings.starMass);
             planetTrail.time = orbitalPeriod;
         }
     }

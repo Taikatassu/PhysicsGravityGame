@@ -13,9 +13,12 @@ public static class PhysicsService {
 
     //Orbital velocity:
     //v = Sqrt(G * m / r)
-    public static float OrbitalVelocity(float mass, float orbitRadius, float orbitEccentricity) {
-        orbitRadius = ClampAboveZero(orbitRadius);
-        return Mathf.Sqrt((gravitationalConstant * mass) / orbitRadius * (1 + orbitEccentricity));
+    public static float OrbitalVelocity(float mass, float distanceFromOrbitCenterOfMass, float orbitEccentricity, bool startOnPeriapsis) {
+        distanceFromOrbitCenterOfMass = ClampAboveZero(distanceFromOrbitCenterOfMass);
+        var eccentricityMultiplier = (startOnPeriapsis)
+            ? 1 + orbitEccentricity
+            : 1 - orbitEccentricity;
+        return Mathf.Sqrt((gravitationalConstant * mass) / distanceFromOrbitCenterOfMass * eccentricityMultiplier);
     }
 
     //Gravitational potential:
@@ -39,5 +42,10 @@ public static class PhysicsService {
 
     public static float OrbitalPeriod(float semiMajorAxis, float mass) {
         return Mathf.Sqrt(Mathf.Pow(semiMajorAxis, 3) / (gravitationalConstant * mass)) * 2 * Mathf.PI;
+    }
+
+    public static float OrbitFocusPosition(float semiMajorAxis, float eccentricity) {
+        var semiMinorAxis = Mathf.Sqrt(Mathf.Pow(semiMajorAxis, 2) - (Mathf.Pow(eccentricity, 2) * Mathf.Pow(semiMajorAxis, 2)));
+        return Mathf.Sqrt(Mathf.Pow(semiMajorAxis, 2) - Mathf.Pow(semiMinorAxis, 2));
     }
 }
