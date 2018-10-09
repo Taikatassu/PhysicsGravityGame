@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Entitas;
+using Entitas.Unity;
 
 public class DestroyedListenerMono : MonoBehaviour, IEventListener, IDestroyedListener {
 
@@ -16,6 +17,9 @@ public class DestroyedListenerMono : MonoBehaviour, IEventListener, IDestroyedLi
     }
 
     public void OnDestroyed(GameEntity entity) {
+        if (gameObject.GetEntityLink() != null)
+            gameObject.Unlink();
+
         Destroy(gameObject);
     }
 }
