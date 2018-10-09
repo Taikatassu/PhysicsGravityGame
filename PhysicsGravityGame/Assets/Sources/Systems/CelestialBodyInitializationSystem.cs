@@ -17,8 +17,9 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
         //Star
         var starEntity = contexts.game.CreateEntity();
         starEntity.ReplaceMass(settings.starMass);
-        starEntity.ReplacePosition(Vector2.one * 50f);
+        starEntity.ReplacePosition(Vector2.zero);
         starEntity.ReplaceVelocity(Vector2.zero);
+        starEntity.ReplaceRadius(10f);
         ViewService.LoadAsset(contexts, starEntity, GameControllerMono.starAssetName);
 
         //Planet(s)
@@ -53,17 +54,22 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
             planetEntity.ReplaceMass(currentPlanetSettings.mass);
             planetEntity.ReplacePosition(planetInitialPosition);
             planetEntity.ReplaceVelocity(planetInitialVelocity);
+            planetEntity.ReplaceRadius(currentPlanetSettings.scale);
+
+            if (i == 2) {
+                planetEntity.isPlayerControlledShooter = true;
+            }
 
             //TODO: Initialize unity gameObject component values elsewhere
             //          Create components and listeners for specific values, like trail color / time, etc.
-            var planetObject = ViewService.LoadAsset(contexts, planetEntity, GameControllerMono.planetAssetName, planetInitialPosition);
+            var planetAsset = ViewService.LoadAsset(contexts, planetEntity, GameControllerMono.planetAssetName, planetInitialPosition);
 
-            planetObject.GetComponentInChildren<SpriteRenderer>().color = currentPlanetSettings.color;
-            planetObject.transform.localScale = Vector3.one * currentPlanetSettings.scale;
-            var planetTrail = planetObject.GetComponent<TrailRenderer>();
-            planetTrail.startWidth = currentPlanetSettings.scale * 1.5f;
+            planetAsset.GetComponentInChildren<SpriteRenderer>().color = currentPlanetSettings.color;
+            planetAsset.transform.localScale = Vector3.one * currentPlanetSettings.scale;
+            var planetTrail = planetAsset.GetComponent<TrailRenderer>();
+            planetTrail.startWidth = currentPlanetSettings.scale;
             planetTrail.material.color = currentPlanetSettings.color;
-            
+
             var orbitalPeriod = PhysicsService.OrbitalPeriod(orbitSemiMajorAxis, settings.starMass);
             planetTrail.time = orbitalPeriod;
         }

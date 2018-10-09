@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4618666355680320}
   - component: {fileID: 114637507580247770}
+  - component: {fileID: 114167833878641814}
   - component: {fileID: 96668620433486474}
   m_Layer: 0
   m_Name: Planet
@@ -66,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 1271689332887284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4618666355680320}
   m_RootOrder: 0
@@ -172,6 +173,17 @@ TrailRenderer:
   m_MinVertexDistance: 0.01
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114167833878641814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1528d80b89ac534d9632dfabb645a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114637507580247770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,8 +235,8 @@ SpriteRenderer:
   m_Color: {r: 0.54294235, g: 0.68282783, b: 0.7830189, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_DrawMode: 1
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -8,15 +8,33 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
+    public const int MousePosition = 0;
+    public const int PrimaryActionButtonHeld = 1;
+    public const int PrimaryActionButtonPressed = 2;
+    public const int PrimaryActionButtonReleased = 3;
+    public const int SecondaryActionButtonHeld = 4;
+    public const int SecondaryActionButtonPressed = 5;
+    public const int SecondaryActionButtonReleased = 6;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
-
+        "MousePosition",
+        "PrimaryActionButtonHeld",
+        "PrimaryActionButtonPressed",
+        "PrimaryActionButtonReleased",
+        "SecondaryActionButtonHeld",
+        "SecondaryActionButtonPressed",
+        "SecondaryActionButtonReleased"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(MousePositionComponent),
+        typeof(PrimaryActionButtonHeldComponent),
+        typeof(PrimaryActionButtonPressedComponent),
+        typeof(PrimaryActionButtonReleasedComponent),
+        typeof(SecondaryActionButtonHeldComponent),
+        typeof(SecondaryActionButtonPressedComponent),
+        typeof(SecondaryActionButtonReleasedComponent)
     };
 }

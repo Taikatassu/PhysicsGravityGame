@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public ForceComponent force { get { return (ForceComponent)GetComponent(GameComponentsLookup.Force); } }
-    public bool hasForce { get { return HasComponent(GameComponentsLookup.Force); } }
+    public RadiusComponent radius { get { return (RadiusComponent)GetComponent(GameComponentsLookup.Radius); } }
+    public bool hasRadius { get { return HasComponent(GameComponentsLookup.Radius); } }
 
-    public void AddForce(UnityEngine.Vector2 newForce) {
-        var index = GameComponentsLookup.Force;
-        var component = CreateComponent<ForceComponent>(index);
-        component.force = newForce;
+    public void AddRadius(float newValue) {
+        var index = GameComponentsLookup.Radius;
+        var component = CreateComponent<RadiusComponent>(index);
+        component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceForce(UnityEngine.Vector2 newForce) {
-        var index = GameComponentsLookup.Force;
-        var component = CreateComponent<ForceComponent>(index);
-        component.force = newForce;
+    public void ReplaceRadius(float newValue) {
+        var index = GameComponentsLookup.Radius;
+        var component = CreateComponent<RadiusComponent>(index);
+        component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveForce() {
-        RemoveComponent(GameComponentsLookup.Force);
+    public void RemoveRadius() {
+        RemoveComponent(GameComponentsLookup.Radius);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherForce;
+    static Entitas.IMatcher<GameEntity> _matcherRadius;
 
-    public static Entitas.IMatcher<GameEntity> Force {
+    public static Entitas.IMatcher<GameEntity> Radius {
         get {
-            if (_matcherForce == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Force);
+            if (_matcherRadius == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Radius);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherForce = matcher;
+                _matcherRadius = matcher;
             }
 
-            return _matcherForce;
+            return _matcherRadius;
         }
     }
 }
