@@ -2,11 +2,6 @@
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
-[Game, Event(EventTarget.Self)]
-public class PositionComponent : IComponent {
-    public Vector2 value;
-}
-
 [Game]
 public class VelocityComponent : IComponent {
     public Vector2 value;
@@ -18,17 +13,32 @@ public class MassComponent : IComponent {
 }
 
 [Game]
-public class RadiusComponent : IComponent {
-    public float value;
-}
-
-[Game]
 public class PlayerControlledShooterComponent : IComponent {
 }
 
 [Game]
 public class ShootDirectionComponent : IComponent {
     public Vector2 value;
+}
+
+[Game, Event(EventTarget.Self)]
+public class PositionComponent : IComponent {
+    public Vector2 value;
+}
+
+[Game, Event(EventTarget.Self)]
+public class RadiusComponent : IComponent {
+    public float value;
+}
+
+[Game, Event(EventTarget.Self)]
+public class OrbitalPeriodComponent : IComponent {
+    public float value;
+}
+
+[Game, Event(EventTarget.Self)]
+public class ColorComponent : IComponent {
+    public Color value;
 }
 
 [Game, Event(EventTarget.Self)]
@@ -43,6 +53,7 @@ public class BlackHoleComponent : IComponent {
 public class CelestialBodySettingsComponent : IComponent {
     public CelestialBodySettings value;
 }
+
 
 #region Input
 [Input, Unique, FlagPrefix("Input")]

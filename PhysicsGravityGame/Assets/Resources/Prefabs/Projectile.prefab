@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4398820662671418}
   - component: {fileID: 114285184213862860}
   - component: {fileID: 114876348480320026}
+  - component: {fileID: 114209381011933148}
   - component: {fileID: 96698492301873072}
   m_Layer: 0
   m_Name: Projectile
@@ -88,7 +89,7 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 4be56a6e3de16b84aba9ad1b3514e1cb, type: 2}
+  - {fileID: 2100000, guid: 3e9c791b9bc39e44e899df47d7f459e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,10 +109,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 5
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1.5
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -173,6 +174,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.01
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &114209381011933148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270303076236138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c029640c8d1c5641b680ec3af275d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlScale: 1
+  controlTrailWidth: 1
+  trailWidthMultiplier: 0.9
 --- !u!114 &114285184213862860
 MonoBehaviour:
   m_ObjectHideFlags: 1

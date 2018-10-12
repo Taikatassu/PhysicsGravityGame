@@ -9,40 +9,55 @@
 public static class GameComponentsLookup {
 
     public const int BlackHole = 0;
-    public const int Destroyed = 1;
-    public const int DestroyedListener = 2;
-    public const int Mass = 3;
-    public const int PlayerControlledShooter = 4;
-    public const int Position = 5;
-    public const int PositionListener = 6;
-    public const int Radius = 7;
-    public const int ShootDirection = 8;
-    public const int Velocity = 9;
+    public const int Color = 1;
+    public const int ColorListener = 2;
+    public const int Destroyed = 3;
+    public const int DestroyedListener = 4;
+    public const int Mass = 5;
+    public const int OrbitalPeriod = 6;
+    public const int OrbitalPeriodListener = 7;
+    public const int PlayerControlledShooter = 8;
+    public const int Position = 9;
+    public const int PositionListener = 10;
+    public const int Radius = 11;
+    public const int RadiusListener = 12;
+    public const int ShootDirection = 13;
+    public const int Velocity = 14;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "BlackHole",
+        "Color",
+        "ColorListener",
         "Destroyed",
         "DestroyedListener",
         "Mass",
+        "OrbitalPeriod",
+        "OrbitalPeriodListener",
         "PlayerControlledShooter",
         "Position",
         "PositionListener",
         "Radius",
+        "RadiusListener",
         "ShootDirection",
         "Velocity"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(BlackHoleComponent),
+        typeof(ColorComponent),
+        typeof(ColorListenerComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
         typeof(MassComponent),
+        typeof(OrbitalPeriodComponent),
+        typeof(OrbitalPeriodListenerComponent),
         typeof(PlayerControlledShooterComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
         typeof(RadiusComponent),
+        typeof(RadiusListenerComponent),
         typeof(ShootDirectionComponent),
         typeof(VelocityComponent)
     };

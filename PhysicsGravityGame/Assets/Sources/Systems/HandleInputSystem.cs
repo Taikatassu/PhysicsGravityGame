@@ -24,18 +24,16 @@ public class HandleInputSystem : IExecuteSystem {
             }
         }
 
-        //TODO: Move black hole creation to separate system, just add a flag for it here
+        //TODO: Move black hole creation to separate system, just add a flag for it here?
         if (inputContext.inputSecondaryActionButtonPressed) {
             if (contexts.game.blackHoleEntity == null) {
                 CreateBlackHole(contexts, inputContext.mousePosition.value);
-                Debug.Log("Created new black hole on button down");
             }
         }
 
         if (inputContext.inputSecondaryActionButtonReleased) {
             if (contexts.game.blackHoleEntity != null) {
                 contexts.game.blackHoleEntity.isDestroyed = true;
-                Debug.Log("Destroyed black hole on button up");
             }
         }
 
@@ -44,7 +42,6 @@ public class HandleInputSystem : IExecuteSystem {
                 contexts.game.blackHoleEntity.ReplacePosition(inputContext.mousePosition.value);
             } else {
                 CreateBlackHole(contexts, inputContext.mousePosition.value);
-                Debug.Log("Created new black hole on button held, since none existed");
             }
         }
     }

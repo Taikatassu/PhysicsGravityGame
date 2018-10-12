@@ -37,6 +37,9 @@ GameObject:
   - component: {fileID: 4618666355680320}
   - component: {fileID: 114637507580247770}
   - component: {fileID: 114167833878641814}
+  - component: {fileID: 114909725321721338}
+  - component: {fileID: 114520368863789982}
+  - component: {fileID: 114868338353307046}
   - component: {fileID: 96668620433486474}
   m_Layer: 0
   m_Name: Planet
@@ -111,7 +114,7 @@ TrailRenderer:
   m_Time: 30
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1.5
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -184,6 +187,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1528d80b89ac534d9632dfabb645a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114520368863789982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c029640c8d1c5641b680ec3af275d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlScale: 1
+  controlTrailWidth: 1
+  trailWidthMultiplier: 0.9
 --- !u!114 &114637507580247770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,6 +213,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useRigidbody: 0
+--- !u!114 &114868338353307046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205c54af11d6af84d9bfd5694ec08bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlTrailTime: 1
+--- !u!114 &114909725321721338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c523bae7f4ba547bed744864eaeca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlSpriteColor: 1
+  controlTrailColor: 1
 --- !u!212 &212079553202554758
 SpriteRenderer:
   m_ObjectHideFlags: 1
