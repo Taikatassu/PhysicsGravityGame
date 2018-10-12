@@ -56,7 +56,7 @@ MonoBehaviour:
       orbitEccentricity: 0.25
     starMass: 19890000
     firstOrbitSemiMajorAxis: 12
-    orbitSemiMajorAxisIncrement: 5
+    orbitSemiMajorAxisIncrement: 6
     orbitEccentricity: 0
     placePlanetOnDifferentSectors: 0
     overrideOrbitEccentricity: 0

@@ -21,3 +21,10 @@ public struct PlanetSettings {
     public float scale;
     public float orbitEccentricity;
 }
+
+public struct CircleCastData {
+    public GameEntity entity;
+    public Vector2 point;
+    public Vector2 normal;
+    public Vector3 centroid;
+}

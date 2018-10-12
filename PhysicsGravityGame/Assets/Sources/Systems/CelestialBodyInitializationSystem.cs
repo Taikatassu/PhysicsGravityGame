@@ -20,13 +20,14 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
         starEntity.ReplaceMass(settings.starMass);
         starEntity.ReplacePosition(Vector2.zero);
         starEntity.ReplaceVelocity(Vector2.zero);
-        starEntity.ReplaceRadius(10f);
+        starEntity.ReplaceRadius(5f);
+        starEntity.isCollideable = true;
 
         //Planet(s)
         var planetSettings = settings.planetSettings;
-        if (planetSettings == null || planetSettings.Length <= 0) return;
+        if(planetSettings == null || planetSettings.Length <= 0) return;
         var sectorAngle = 360f / planetSettings.Length;
-        for (int i = 0; i < planetSettings.Length; i++) {
+        for(int i = 0; i < planetSettings.Length; i++) {
             var currentPlanetSettings = planetSettings[i];
             var startOnPeriapsis = true;
 
@@ -60,8 +61,9 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
             planetEntity.ReplacePosition(planetInitialPosition);
             planetEntity.ReplaceVelocity(planetInitialVelocity);
             planetEntity.ReplaceOrbitalPeriod(orbitalPeriod);
+            planetEntity.isCollideable = true;
 
-            if (i == 2) {
+            if(i == 2) {
                 planetEntity.isPlayerControlledShooter = true;
             }
         }

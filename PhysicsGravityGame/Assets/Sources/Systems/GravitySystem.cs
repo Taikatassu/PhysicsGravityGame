@@ -23,7 +23,7 @@ public class GravitySystem : IExecuteSystem {
                 if (entityMass > other.mass.value) continue;
                 
                 entityVelocity += PhysicsService.GravitationalPotentialVector(entityMass, other.mass.value, 
-                    entityPosition, other.position.value) * Time.deltaTime;             
+                    entityPosition, other.position.value) * Time.fixedDeltaTime;             
             }
 
             e.ReplaceVelocity(entityVelocity);

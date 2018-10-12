@@ -38,9 +38,13 @@ GameObject:
   - component: {fileID: 114637507580247770}
   - component: {fileID: 114167833878641814}
   - component: {fileID: 114909725321721338}
-  - component: {fileID: 114520368863789982}
   - component: {fileID: 114868338353307046}
+  - component: {fileID: 114520368863789982}
+  - component: {fileID: 114269313255636368}
   - component: {fileID: 96668620433486474}
+  - component: {fileID: 58165605323606220}
+  - component: {fileID: 114955852774989156}
+  - component: {fileID: 50923051300906492}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -75,6 +79,41 @@ Transform:
   m_Father: {fileID: 4618666355680320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50923051300906492
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58165605323606220
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.45
 --- !u!96 &96668620433486474
 TrailRenderer:
   serializedVersion: 2
@@ -187,6 +226,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1528d80b89ac534d9632dfabb645a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114269313255636368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de560e1c03d2b0446a2425bb6894d0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114520368863789982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +288,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlSpriteColor: 1
   controlTrailColor: 1
+--- !u!114 &114955852774989156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573965867356956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d3a4046d3f54145965deb6da533dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDetectionEnabled: 0
 --- !u!212 &212079553202554758
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,25 +9,29 @@
 public static class GameComponentsLookup {
 
     public const int BlackHole = 0;
-    public const int Color = 1;
-    public const int ColorListener = 2;
-    public const int Destroyed = 3;
-    public const int DestroyedListener = 4;
-    public const int Mass = 5;
-    public const int OrbitalPeriod = 6;
-    public const int OrbitalPeriodListener = 7;
-    public const int PlayerControlledShooter = 8;
-    public const int Position = 9;
-    public const int PositionListener = 10;
-    public const int Radius = 11;
-    public const int RadiusListener = 12;
-    public const int ShootDirection = 13;
-    public const int Velocity = 14;
+    public const int CircleCollider = 1;
+    public const int Collideable = 2;
+    public const int Color = 3;
+    public const int ColorListener = 4;
+    public const int Destroyed = 5;
+    public const int DestroyedListener = 6;
+    public const int Mass = 7;
+    public const int OrbitalPeriod = 8;
+    public const int OrbitalPeriodListener = 9;
+    public const int PlayerControlledShooter = 10;
+    public const int Position = 11;
+    public const int PositionListener = 12;
+    public const int Radius = 13;
+    public const int RadiusListener = 14;
+    public const int ShootDirection = 15;
+    public const int Velocity = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "BlackHole",
+        "CircleCollider",
+        "Collideable",
         "Color",
         "ColorListener",
         "Destroyed",
@@ -46,6 +50,8 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(BlackHoleComponent),
+        typeof(CircleColliderComponent),
+        typeof(Collideable),
         typeof(ColorComponent),
         typeof(ColorListenerComponent),
         typeof(DestroyedComponent),

@@ -7,8 +7,8 @@ public class ApplyVelocitySystem : IExecuteSystem {
 
     public ApplyVelocitySystem(Contexts contexts) {
         velocityEntities = contexts.game.GetGroup(GameMatcher.AllOf(
-            GameMatcher.Velocity,
-            GameMatcher.Position
+                GameMatcher.Velocity,
+                GameMatcher.Position
             ));
     }
 

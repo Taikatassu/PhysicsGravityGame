@@ -18,9 +18,9 @@ public class RadiusListenerMono : MonoBehaviour, IEventListener, IRadiusListener
     }
 
     public void OnRadius(GameEntity entity, float value) {
-        if(controlScale && ValidateTransformReference()) t.localScale = Vector3.one * value;
+        if(controlScale && ValidateTransformReference()) t.localScale = Vector3.one * value * 2f;
 
-        if(controlTrailWidth && ValidateTrailRendererReference()) trail.startWidth = value * trailWidthMultiplier;
+        if(controlTrailWidth && ValidateTrailRendererReference()) trail.startWidth = value * 2f * trailWidthMultiplier;
     }
 
     private bool ValidateTransformReference() {

@@ -47,6 +47,7 @@ public class GameControllerMono : MonoBehaviour {
             .Add(new CelestialBodyInitializationSystem(contexts))
             .Add(new ShootingSystem(contexts))
             .Add(new GravitySystem(contexts))
+            //.Add(new CollisionDetectionSystem(contexts))
             .Add(new ApplyVelocitySystem(contexts))
             .Add(new GameEventSystems(contexts))
             .Add(new CleanupGameEntitiesSystem(contexts))

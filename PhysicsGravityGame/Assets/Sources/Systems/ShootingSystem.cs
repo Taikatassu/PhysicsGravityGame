@@ -17,20 +17,24 @@ public class ShootingSystem : ReactiveSystem<GameEntity>, ICleanupSystem {
     }
 
     protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) {
-        return context.CreateCollector(GameMatcher.ShootDirection);
+        return context.CreateCollector(GameMatcher.AllOf(
+                GameMatcher.ShootDirection,
+                GameMatcher.Position,
+                GameMatcher.Radius
+            ));
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasShootDirection;
+        return entity.hasShootDirection && entity.hasPosition && entity.hasRadius;
     }
 
     protected override void Execute(List<GameEntity> entities) {
-        var spawnDistanceMultiplier = 1.1f;
+        var spawnDistanceMultiplier = 1.25f;
         var shootVelocity = 30f;
         var projectileMass = 0.001f;
         var projectileRadius = 0.25f;
-        foreach (var e in entities) {
-            var spawnPosition = e.position.value + e.shootDirection.value * e.radius.value * spawnDistanceMultiplier;
+        foreach(var e in entities) {
+            var spawnPosition = e.position.value + e.shootDirection.value * (e.radius.value + projectileRadius) * spawnDistanceMultiplier;
             var initialVelocity = e.shootDirection.value * shootVelocity;
             var projectileEntity = contexts.game.CreateEntity();
             ViewService.LoadAsset(contexts, projectileEntity, GameControllerMono.projectileAssetName, spawnPosition);
@@ -38,12 +42,12 @@ public class ShootingSystem : ReactiveSystem<GameEntity>, ICleanupSystem {
             projectileEntity.ReplaceVelocity(initialVelocity);
             projectileEntity.ReplaceMass(projectileMass);
             projectileEntity.ReplaceRadius(projectileRadius);
-        
+            projectileEntity.isCollideable = true;
         }
     }
 
     public void Cleanup() {
-        foreach (var e in shooters.GetEntities()) {
+        foreach(var e in shooters.GetEntities()) {
             e.RemoveShootDirection();
         }
     }

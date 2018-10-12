@@ -17,6 +17,10 @@ public class PlayerControlledShooterComponent : IComponent {
 }
 
 [Game]
+public class Collideable : IComponent {
+}
+
+[Game]
 public class ShootDirectionComponent : IComponent {
     public Vector2 value;
 }
@@ -45,6 +49,11 @@ public class ColorComponent : IComponent {
 public class DestroyedComponent : IComponent {
 }
 
+[Game]
+public class CircleColliderComponent : IComponent {
+    public CircleCollider2D value;
+}
+
 [Game, Unique]
 public class BlackHoleComponent : IComponent {
 }
@@ -53,7 +62,6 @@ public class BlackHoleComponent : IComponent {
 public class CelestialBodySettingsComponent : IComponent {
     public CelestialBodySettings value;
 }
-
 
 #region Input
 [Input, Unique, FlagPrefix("Input")]

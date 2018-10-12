@@ -11,6 +11,7 @@ public static class PhysicsService {
         return Mathf.Clamp(value, kEpsilon, float.MaxValue);
     }
 
+    #region Orbit calculation
     //Orbital velocity:
     //v = Sqrt(G * m / r)
     public static float OrbitalVelocity(float mass, float distanceFromOrbitCenterOfMass, float orbitEccentricity, bool startOnPeriapsis) {
@@ -48,4 +49,39 @@ public static class PhysicsService {
         var semiMinorAxis = Mathf.Sqrt(Mathf.Pow(semiMajorAxis, 2) - (Mathf.Pow(eccentricity, 2) * Mathf.Pow(semiMajorAxis, 2)));
         return Mathf.Sqrt(Mathf.Pow(semiMajorAxis, 2) - Mathf.Pow(semiMinorAxis, 2));
     }
+    #endregion
+
+    #region Collision detection
+    public static CircleCastData[] CircleCastAll(Vector2 origin, float radius, Vector2 direcion, GameEntity[] entitiesToIgnore = null) {
+        var hits = Physics2D.CircleCastAll(origin, radius, direcion);
+        Debug.DrawRay(origin, direcion, Color.green);
+        CircleCastTestMono.AddDebugCirclesToList(origin, radius);
+        CircleCastTestMono.AddDebugCirclesToList(origin + direcion, radius);
+        var circleCastDatas = new List<CircleCastData>();
+
+        if(hits.Length > 0) {
+            var hitCount = hits.Length;
+
+            for(int i = 0; i < hitCount; i++) {
+                var hitEntity = hits[i].collider.gameObject.GetComponent<EntityReferenceMono>().entity;
+
+                if(entitiesToIgnore.Contains(hitEntity)) continue;
+
+                circleCastDatas.Add(new CircleCastData {
+                    entity = hitEntity,
+                    point = hits[i].point,
+                    normal = hits[i].normal,
+                    centroid = hits[i].centroid
+                });
+            }
+        }
+
+        return circleCastDatas.ToArray();
+    }
+
+    public static CircleCastData[] CircleCastAll(Vector2 origin, float radius, Vector2 direcion, GameEntity entityToIgnore) {
+        return CircleCastAll(origin, radius, direcion, new GameEntity[1] { entityToIgnore });
+    }
+    #endregion
+
 }
