@@ -52,8 +52,8 @@ public static class PhysicsService {
     #endregion
 
     #region Collision detection
-    public static CircleCastData[] CircleCastAll(Vector2 origin, float radius, Vector2 direcion, GameEntity[] entitiesToIgnore = null) {
-        var hits = Physics2D.CircleCastAll(origin, radius, direcion);
+    public static CircleCastData[] CircleCastAll(Vector2 origin, float radius, Vector2 direcion, float distance, GameEntity[] entitiesToIgnore = null) {
+        var hits = Physics2D.CircleCastAll(origin, radius, direcion, distance);
         Debug.DrawRay(origin, direcion, Color.green);
         CircleCastTestMono.AddDebugCirclesToList(origin, radius);
         CircleCastTestMono.AddDebugCirclesToList(origin + direcion, radius);
@@ -79,8 +79,8 @@ public static class PhysicsService {
         return circleCastDatas.ToArray();
     }
 
-    public static CircleCastData[] CircleCastAll(Vector2 origin, float radius, Vector2 direcion, GameEntity entityToIgnore) {
-        return CircleCastAll(origin, radius, direcion, new GameEntity[1] { entityToIgnore });
+    public static CircleCastData[] CircleCastAll(Vector2 origin, float radius, Vector2 direcion, float distance, GameEntity entityToIgnore) {
+        return CircleCastAll(origin, radius, direcion, distance, new GameEntity[1] { entityToIgnore });
     }
     #endregion
 

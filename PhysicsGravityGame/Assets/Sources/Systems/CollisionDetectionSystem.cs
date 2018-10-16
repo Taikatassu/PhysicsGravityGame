@@ -27,16 +27,16 @@ public class CollisionDetectionSystem : IExecuteSystem {
             var castDirection = e.velocity.value * Time.fixedDeltaTime;
             var castRadius = e.radius.value;
 
-            var circleCastDatas = PhysicsService.CircleCastAll(castOrigin, castRadius, castDirection, e);
+            var circleCastDatas = PhysicsService.CircleCastAll(castOrigin, castRadius, castDirection, castDirection.magnitude, e);
             if(circleCastDatas.Length > 0) {
                 foreach(var data in circleCastDatas) {
                     if(data.entity.mass.value > e.mass.value) continue;
 
-                    //data.entity.isDestroyed = true;
-                    Debug.Log("Collision. distance: " + castDirection.magnitude + ", radius: " + castRadius
-                        + ", distance between objects: " + (e.position.value - data.entity.position.value).magnitude
-                        + ", other.radius: " + data.entity.radius.value);
+                    //Debug.Log("Collision. distance: " + castDirection.magnitude + ", radius: " + castRadius
+                    //    + ", distance between objects: " + (e.position.value - data.entity.position.value).magnitude
+                    //    + ", other.radius: " + data.entity.radius.value);
 
+                    data.entity.isDestroyed = true;
                     ViewService.LoadAsset(contexts, null, "CollisionEffectTest", data.point);
                 }
             }

@@ -29,7 +29,7 @@ public class ShootingSystem : ReactiveSystem<GameEntity>, ICleanupSystem {
     }
 
     protected override void Execute(List<GameEntity> entities) {
-        var spawnDistanceMultiplier = 1.25f;
+        var spawnDistanceMultiplier = 1.5f;
         var shootVelocity = 30f;
         var projectileMass = 0.001f;
         var projectileRadius = 0.25f;
