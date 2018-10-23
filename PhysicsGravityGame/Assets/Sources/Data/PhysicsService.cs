@@ -84,4 +84,14 @@ public static class PhysicsService {
     }
     #endregion
 
+    #region Other
+    public static float RelativeVelocityMagnitude(Vector2 velocity1, Vector2 velocity2) {
+        return (velocity1 - velocity2).magnitude;
+    }
+
+    public static float RelativeMass(float mass1, float mass2) {
+        return (mass1 / mass2);
+    }
+    #endregion
+
 }

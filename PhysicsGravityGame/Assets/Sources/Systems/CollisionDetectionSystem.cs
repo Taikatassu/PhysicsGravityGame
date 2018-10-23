@@ -32,12 +32,10 @@ public class CollisionDetectionSystem : IExecuteSystem {
                 foreach(var data in circleCastDatas) {
                     if(data.entity.mass.value > e.mass.value) continue;
 
-                    //Debug.Log("Collision. distance: " + castDirection.magnitude + ", radius: " + castRadius
-                    //    + ", distance between objects: " + (e.position.value - data.entity.position.value).magnitude
-                    //    + ", other.radius: " + data.entity.radius.value);
-
                     data.entity.isDestroyed = true;
                     ViewService.LoadAsset(contexts, null, "CollisionEffectTest", data.point);
+
+                    //DamageService.DealDamageOnCollision(e, data.entity);
                 }
             }
         }

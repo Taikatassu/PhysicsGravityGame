@@ -25,6 +25,11 @@ public class ShootDirectionComponent : IComponent {
     public Vector2 value;
 }
 
+[Game]
+public class HealthComponent : IComponent {
+    public float value;
+}
+
 [Game, Event(EventTarget.Self)]
 public class PositionComponent : IComponent {
     public Vector2 value;

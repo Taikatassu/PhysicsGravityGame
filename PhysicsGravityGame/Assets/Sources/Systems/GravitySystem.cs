@@ -2,7 +2,7 @@
 using Entitas;
 
 public class GravitySystem : IExecuteSystem {
-    
+
     private IGroup<GameEntity> gravityEntities;
 
     public GravitySystem(Contexts contexts) {
@@ -14,16 +14,16 @@ public class GravitySystem : IExecuteSystem {
     }
 
     public void Execute() {
-        foreach (var e in gravityEntities) {
+        foreach(var e in gravityEntities) {
             Vector2 entityVelocity = e.velocity.value;
             Vector2 entityPosition = e.position.value;
             float entityMass = e.mass.value;
-            foreach (var other in gravityEntities) {
-                if (other == e) continue;
-                if (entityMass > other.mass.value) continue;
-                
-                entityVelocity += PhysicsService.GravitationalPotentialVector(entityMass, other.mass.value, 
-                    entityPosition, other.position.value) * Time.fixedDeltaTime;             
+            foreach(var other in gravityEntities) {
+                if(other == e) continue;
+                if(entityMass > other.mass.value) continue;
+
+                entityVelocity += PhysicsService.GravitationalPotentialVector(entityMass, other.mass.value,
+                    entityPosition, other.position.value) * Time.fixedDeltaTime;
             }
 
             e.ReplaceVelocity(entityVelocity);

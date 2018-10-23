@@ -15,18 +15,19 @@ public static class GameComponentsLookup {
     public const int ColorListener = 4;
     public const int Destroyed = 5;
     public const int DestroyedListener = 6;
-    public const int Mass = 7;
-    public const int OrbitalPeriod = 8;
-    public const int OrbitalPeriodListener = 9;
-    public const int PlayerControlledShooter = 10;
-    public const int Position = 11;
-    public const int PositionListener = 12;
-    public const int Radius = 13;
-    public const int RadiusListener = 14;
-    public const int ShootDirection = 15;
-    public const int Velocity = 16;
+    public const int Health = 7;
+    public const int Mass = 8;
+    public const int OrbitalPeriod = 9;
+    public const int OrbitalPeriodListener = 10;
+    public const int PlayerControlledShooter = 11;
+    public const int Position = 12;
+    public const int PositionListener = 13;
+    public const int Radius = 14;
+    public const int RadiusListener = 15;
+    public const int ShootDirection = 16;
+    public const int Velocity = 17;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "BlackHole",
@@ -36,6 +37,7 @@ public static class GameComponentsLookup {
         "ColorListener",
         "Destroyed",
         "DestroyedListener",
+        "Health",
         "Mass",
         "OrbitalPeriod",
         "OrbitalPeriodListener",
@@ -56,6 +58,7 @@ public static class GameComponentsLookup {
         typeof(ColorListenerComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
+        typeof(HealthComponent),
         typeof(MassComponent),
         typeof(OrbitalPeriodComponent),
         typeof(OrbitalPeriodListenerComponent),

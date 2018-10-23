@@ -49,6 +49,7 @@ public class GameControllerMono : MonoBehaviour {
             .Add(new GravitySystem(contexts))
             .Add(new CollisionDetectionSystem(contexts))
             .Add(new ApplyVelocitySystem(contexts))
+            //.Add(new HealthExpirationSystem(contexts))
             .Add(new GameEventSystems(contexts))
             .Add(new CleanupGameEntitiesSystem(contexts))
             ;
