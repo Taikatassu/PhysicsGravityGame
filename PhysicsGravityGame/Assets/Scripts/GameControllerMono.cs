@@ -45,11 +45,15 @@ public class GameControllerMono : MonoBehaviour {
     public static Systems CreateGameSystems(Contexts contexts) {
         return new Feature("GameSystems")
             .Add(new CelestialBodyInitializationSystem(contexts))
+            //TODO: Implement shooting direction visualizer
             .Add(new ShootingSystem(contexts))
             .Add(new GravitySystem(contexts))
             .Add(new CollisionDetectionSystem(contexts))
             .Add(new ApplyVelocitySystem(contexts))
             //.Add(new HealthExpirationSystem(contexts))
+            //TODO: Implement health visualization system (requires "max health" component)
+            //TODO: Implement score system (how many planets left / destroyed)
+            //TODO: Implement game state system (end / restart game once the player planet or all the other planets have been destroyed)
             .Add(new GameEventSystems(contexts))
             .Add(new CleanupGameEntitiesSystem(contexts))
             ;
