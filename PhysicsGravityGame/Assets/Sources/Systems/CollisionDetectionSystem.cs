@@ -21,21 +21,21 @@ public class CollisionDetectionSystem : IExecuteSystem {
     }
 
     public void Execute() {
-        foreach(var e in collideables) {
+        foreach (var e in collideables) {
 
             var castOrigin = e.position.value;
             var castDirection = e.velocity.value * Time.fixedDeltaTime;
             var castRadius = e.radius.value;
 
             var circleCastDatas = PhysicsService.CircleCastAll(castOrigin, castRadius, castDirection, castDirection.magnitude, e);
-            if(circleCastDatas.Length > 0) {
-                foreach(var data in circleCastDatas) {
-                    if(data.entity.mass.value > e.mass.value) continue;
+            if (circleCastDatas.Length > 0) {
+                foreach (var data in circleCastDatas) {
+                    if (data.entity.mass.value > e.mass.value) continue;
 
-                    data.entity.isDestroyed = true;
-                    ViewService.LoadAsset(contexts, null, "CollisionEffectTest", data.point);
+                    //data.entity.isDestroyed = true;
+                    //ViewService.LoadAsset(contexts, null, "CollisionEffectTest", data.point);
 
-                    //DamageService.DealDamageOnCollision(e, data.entity);
+                    DamageService.DealDamageOnCollision(e, data.entity);
                 }
             }
         }

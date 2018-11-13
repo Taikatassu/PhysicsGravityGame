@@ -43,6 +43,7 @@ public class ShootingSystem : ReactiveSystem<GameEntity>, ICleanupSystem {
             projectileEntity.ReplaceMass(projectileMass);
             projectileEntity.ReplaceRadius(projectileRadius);
             projectileEntity.isCollideable = true;
+            projectileEntity.ReplaceHealth(1f);
         }
     }
 

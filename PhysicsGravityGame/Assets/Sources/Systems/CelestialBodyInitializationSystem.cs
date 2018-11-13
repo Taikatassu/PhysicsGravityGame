@@ -22,6 +22,7 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
         starEntity.ReplaceVelocity(Vector2.zero);
         starEntity.ReplaceRadius(5f);
         starEntity.isCollideable = true;
+        //starEntity.ReplaceHealth(20f);
 
         //Planet(s)
         var planetSettings = settings.planetSettings;
@@ -62,9 +63,11 @@ public class CelestialBodyInitializationSystem : IInitializeSystem {
             planetEntity.ReplaceVelocity(planetInitialVelocity);
             planetEntity.ReplaceOrbitalPeriod(orbitalPeriod);
             planetEntity.isCollideable = true;
+            planetEntity.ReplaceHealth(1f);
 
-            if(i == 2) {
+            if (i == 2) {
                 planetEntity.isPlayerControlledShooter = true;
+                planetEntity.RemoveHealth();
             }
         }
     }

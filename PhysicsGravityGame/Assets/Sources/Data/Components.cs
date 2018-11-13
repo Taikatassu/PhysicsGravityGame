@@ -59,6 +59,11 @@ public class CircleColliderComponent : IComponent {
     public CircleCollider2D value;
 }
 
+[Game]
+public class DebrisGenerationComponent : IComponent {
+    public int value;
+}
+
 [Game, Unique]
 public class BlackHoleComponent : IComponent {
 }
